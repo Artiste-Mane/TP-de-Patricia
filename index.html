@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lusansu Patricia Gracia | Fashion Design Portfolio</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- Tailwind Config for Custom Colors and Fonts -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        beige: '#F5F5F0',
+                        'beige-dark': '#EBEBE4',
+                        black: '#1A1A1A',
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['Lato', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Styles for Animations */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .img-hover-zoom {
+            overflow: hidden;
+        }
+        
+        .img-hover-zoom img {
+            transition: transform 0.7s ease;
+        }
+        
+        .img-hover-zoom:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Editorial Line separator */
+        .editorial-line {
+            height: 1px;
+            background-color: currentColor;
+            width: 100%;
+            opacity: 0.2;
+        }
+    </style>
+</head>
+<body class="font-sans text-black bg-white antialiased selection:bg-black selection:text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 py-6 flex justify-between items-center">
+            <a href="#" class="font-serif text-2xl font-bold tracking-wider mix-blend-difference text-white">LPG.</a>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-8 mix-blend-difference text-white text-sm uppercase tracking-widest">
+                <a href="#profil" class="hover:opacity-60 transition-opacity">Profil</a>
+                <a href="#competences" class="hover:opacity-60 transition-opacity">Expertise</a>
+                <a href="#projets" class="hover:opacity-60 transition-opacity">Projets</a>
+                <a href="#vision" class="hover:opacity-60 transition-opacity">Vision</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden text-white mix-blend-difference focus:outline-none" id="mobile-menu-btn">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <div class="md:hidden hidden bg-white text-black absolute w-full top-full left-0 border-t border-gray-100 shadow-xl" id="mobile-menu">
+            <div class="flex flex-col px-6 py-8 space-y-6 text-center uppercase tracking-widest text-sm">
+                <a href="#profil" class="mobile-link">Profil</a>
+                <a href="#competences" class="mobile-link">Expertise</a>
+                <a href="gallery.html" class="hover:opacity-60 transition-opacity">Galerie</a>
+                <a href="#vision" class="mobile-link">Vision</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative h-screen flex items-center justify-center overflow-hidden">
+        <!-- Background Image -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=2070&auto=format&fit=crop" alt="Fashion Design Background" class="w-full h-full object-cover object-top">
+            <div class="absolute inset-0 bg-black/30"></div> <!-- Subtle dark overlay for readability -->
+        </div>
+
+        <!-- Hero Content -->
+        <div class="relative z-10 text-center text-white px-4 mt-20">
+            <p class="text-xs md:text-sm uppercase tracking-[0.3em] mb-4 opacity-80">Étudiante en Technique d'Habillement (2ème année)</p>
+            <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl mb-6">Lusansu<br><span class="italic font-light">Patricia Gracia</span></h1>
+            <div class="w-16 h-px bg-white mx-auto mb-6"></div>
+            <p class="text-lg md:text-xl font-light tracking-wide uppercase">Fashion Design Portfolio</p>
+
+<a href="gallery.html" 
+   class="inline-block mt-6 border border-white px-6 py-3 text-sm uppercase tracking-widest hover:bg-white hover:text-black transition">
+   Voir les réalisations
+</a>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <a href="#profil" class="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-white z-10 animate-bounce hover:opacity-70">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+        </a>
+    </header>
+
+    <!-- Section: Profil Professionnel -->
+    <section id="profil" class="py-24 md:py-32 px-6 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row gap-16 lg:gap-24 items-center">
+                
+                <!-- Image -->
+                <div class="w-full md:w-5/12 fade-up">
+                    <img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?q=80&w=1974&auto=format&fit=crop" alt="Atelier de couture" class="w-full h-auto aspect-[3/4] object-cover grayscale hover:grayscale-0 transition duration-700">
+                </div>
+
+                <!-- Text -->
+                <div class="w-full md:w-7/12 fade-up">
+                    <h2 class="font-serif text-3xl md:text-5xl mb-8">Profil Professionnel</h2>
+                    <p class="text-lg md:text-xl leading-relaxed text-gray-700 font-light mb-12">
+                        Passionnée par l'architecture du vêtement et l'innovation textile, j'évolue depuis deux ans au cœur de l'apprentissage des techniques d'habillement. Mon approche fusionne la rigueur technique du modélisme avec une vision créative axée sur l'élégance contemporaine et l'originalité des motifs.
+                    </p>
+
+                    <div class="space-y-8">
+                        <div class="flex items-start">
+                            <span class="text-xs uppercase tracking-widest font-bold w-32 shrink-0 pt-1">Précision technique</span>
+                            <p class="text-gray-600 font-light border-l border-gray-300 pl-6">Maîtrise des coupes et de l’assemblage.</p>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="text-xs uppercase tracking-widest font-bold w-32 shrink-0 pt-1">Identité visuelle</span>
+                            <p class="text-gray-600 font-light border-l border-gray-300 pl-6">Création de motifs exclusifs et textiles innovants.</p>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="text-xs uppercase tracking-widest font-bold w-32 shrink-0 pt-1">Esthétique éditoriale</span>
+                            <p class="text-gray-600 font-light border-l border-gray-300 pl-6">Attention aux détails, finitions et mise en image.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Compétences & Expertise -->
+    <section id="competences" class="py-24 md:py-32 px-6 bg-beige">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20 fade-up">
+                <p class="text-sm uppercase tracking-widest text-gray-500 mb-3">Savoir-faire</p>
+                <h2 class="font-serif text-4xl md:text-5xl">Compétences & Expertise</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16">
+                <!-- Column 1 -->
+                <div class="fade-up">
+                    <div class="editorial-line mb-6"></div>
+                    <h3 class="font-serif text-2xl italic mb-6">Conception Technique</h3>
+                    <ul class="space-y-4 font-light text-gray-700">
+                        <li class="flex items-center"><span class="w-1.5 h-1.5 bg-black rounded-full mr-4"></span>Coupe à plat et patronage</li>
+                        <li class="flex items-center"><span class="w-1.5 h-1.5 bg-black rounded-full mr-4"></span>Montage de vêtements</li>
+                        <li class="flex items-center"><span class="w-1.5 h-1.5 bg-black rounded-full mr-4"></span>Étude des textiles</li>
+                    </ul>
+                </div>
+
+                <!-- Column 2 -->
+                <div class="fade-up" style="transition-delay: 100ms;">
+                    <div class="editorial-line mb-6"></div>
+                    <h3 class="font-serif text-2xl italic mb-6">Design & Création</h3>
+                    <ul class="space-y-4 font-light text-gray-700">
+                        <li class="flex items-center"><span class="w-1.5 h-1.5 bg-black rounded-full mr-4"></span>Design de motifs et pagnes</li>
+                        <li class="flex items-center"><span class="w-1.5 h-1.5 bg-black rounded-full mr-4"></span>Stylisme éditorial</li>
+                        <li class="flex items-center"><span class="w-1.5 h-1.5 bg-black rounded-full mr-4"></span>Harmonie des couleurs</li>
+                    </ul>
+                </div>
+
+                <!-- Column 3 -->
+                <div class="fade-up" style="transition-delay: 200ms;">
+                    <div class="editorial-line mb-6"></div>
+                    <h3 class="font-serif text-2xl italic mb-6">Outils & Digital</h3>
+                    <ul class="space-y-4 font-light text-gray-700">
+                        <li class="flex items-center"><span class="w-1.5 h-1.5 bg-black rounded-full mr-4"></span>Retouche d’image haute qualité</li>
+                        <li class="flex items-center"><span class="w-1.5 h-1.5 bg-black rounded-full mr-4"></span>Optimisation de rendus visuels</li>
+                        <li class="flex items-center"><span class="w-1.5 h-1.5 bg-black rounded-full mr-4"></span>Direction artistique de shooting</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Projets Marquants -->
+    <section id="projets" class="py-24 md:py-32 px-6 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex justify-between items-end mb-16 fade-up">
+                <h2 class="font-serif text-4xl md:text-5xl">Projets Marquants</h2>
+                <a href="gallery.html" class="hidden md:inline-block text-xs uppercase tracking-widest border-b border-black pb-1 hover:text-gray-500 hover:border-gray-500 transition">Voir tout</a>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+                <!-- Projet 1 -->
+                <div class="fade-up group">
+                    <div class="img-hover-zoom mb-8 bg-beige h-[70vh]">
+                        <img src=" 20260410_095144.jpg.jpeg" alt="Structure et Mouvement" class="w-full h-full object-cover">
+                    </div>
+                    <p class="text-xs uppercase tracking-widest text-gray-500 mb-2">Collection d'étude</p>
+                    <h3 class="font-serif text-3xl mb-4 group-hover:italic transition-all">Structure & Mouvement</h3>
+                    <p class="font-light text-gray-600">Exploration de la silhouette avec des coupes structurées et contrastes.</p>
+                </div>
+
+                <!-- Projet 2 -->
+                <div class="fade-up group md:mt-24">
+                    <div class="img-hover-zoom mb-8 bg-beige h-[70vh]">
+                        <img src="20260410_100014.jpg.jpeg" alt="Innovation Textile" class="w-full h-full object-cover">
+                    </div>
+                    <p class="text-xs uppercase tracking-widest text-gray-500 mb-2">Recherche de matière</p>
+                    <h3 class="font-serif text-3xl mb-4 group-hover:italic transition-all">Innovation Textile</h3>
+                    <p class="font-light text-gray-600">Réinterprétation du pagne traditionnel avec logotypes modernes et compositions asymétriques.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Vision Créative -->
+    <section id="vision" class="py-32 px-6 bg-black text-white text-center">
+        <div class="max-w-4xl mx-auto fade-up">
+            <p class="text-xs uppercase tracking-[0.3em] text-gray-400 mb-8">Vision Créative</p>
+            <blockquote class="font-serif text-2xl md:text-4xl leading-snug md:leading-normal font-light">
+                "Mon travail repose sur l’équilibre entre la tradition des savoir-faire artisanaux et les exigences de la mode moderne. Chaque projet est une opportunité de repousser les limites de la matière pour créer des pièces uniques racontant une histoire, alliant esthétique haut de gamme et maîtrise technique."
+            </blockquote>
+            <div class="mt-12 text-gray-400 font-serif italic text-xl">
+                — Lusansu Patricia Gracia
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 bg-white text-center border-t border-gray-100">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-sm text-gray-500 uppercase tracking-widest">
+            <p>&copy; 2026 Lusansu Patricia Gracia.</p>
+            <div class="mt-4 md:mt-0 space-x-6">
+                <a href="https://www.instagram.com/hacia_lus5?igsh=MTI3dmprbDcxcWJidQ==" class="hover:text-black transition">Instagram</a>
+                <a href="https://www.facebook.com/share/1KVyZpLx3d/" class="hover:text-black transition">Facebook</a>
+                <a href="mailto:contact@lusansu.com" class="hover:text-black transition">Email</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript pour les animations et le menu mobile -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Mobile Menu Toggle
+            const btn = document.getElementById('mobile-menu-btn');
+            const menu = document.getElementById('mobile-menu');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+
+            btn.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+            });
+
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    menu.classList.add('hidden');
+                });
+            });
+
+            // Navbar Background Change on Scroll
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('bg-white', 'shadow-sm');
+                    navbar.querySelector('.font-bold').classList.remove('mix-blend-difference', 'text-white');
+                    navbar.querySelector('.font-bold').classList.add('text-black');
+                    
+                    // Desktop links
+                    const links = navbar.querySelectorAll('.hidden.md\\:flex a');
+                    links.forEach(link => {
+                        link.parentElement.classList.remove('mix-blend-difference', 'text-white');
+                        link.parentElement.classList.add('text-black');
+                    });
+
+                    // Mobile btn
+                    btn.classList.remove('mix-blend-difference', 'text-white');
+                    btn.classList.add('text-black');
+                } else {
+                    navbar.classList.remove('bg-white', 'shadow-sm');
+                    navbar.querySelector('.font-bold').classList.add('mix-blend-difference', 'text-white');
+                    navbar.querySelector('.font-bold').classList.remove('text-black');
+                    
+                    const links = navbar.querySelectorAll('.hidden.md\\:flex a');
+                    links.forEach(link => {
+                        link.parentElement.classList.add('mix-blend-difference', 'text-white');
+                        link.parentElement.classList.remove('text-black');
+                    });
+
+                    btn.classList.add('mix-blend-difference', 'text-white');
+                    btn.classList.remove('text-black');
+                }
+            });
+
+            // Intersection Observer for fade-up animations
+            const fadeUpElements = document.querySelectorAll('.fade-up');
+            
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target); // Ne joue l'animation qu'une seule fois
+                    }
+                });
+            }, observerOptions);
+
+            fadeUpElements.forEach(el => observer.observe(el));
+        });
+    </script>
+
+    
+    <!-- WhatsApp Button -->
+<a href="https://wa.me/260778155664" target="_blank"
+   class="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg z-50 transition">
+    💬
+</a>
+
+<!-- Back to Top Button -->
+<button id="backToTop" class="hidden fixed bottom-6 left-6 bg-black text-white px-4 py-2 rounded shadow-lg z-50">
+    ↑ Top
+</button>
+
+<script>
+// BACK TO TOP
+const backToTop = document.getElementById("backToTop");
+
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 300) {
+        backToTop.classList.remove("hidden");
+    } else {
+        backToTop.classList.add("hidden");
+    }
+});
+
+backToTop.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+});
+</script>
+
+
+
+
+</body>
+</html>
